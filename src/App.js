@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import React, { useState } from "react";
+import "./App.css";
+import InputDetails from "./components/InputDetails";
+import ShowingDetails from "./components/ShowingDetails";
 
 function App() {
+  const [enteredDetails, setEnteredDetails] = useState([]);
+  const addDetails = (uId, price, dish, table) => {
+    console.log(uId, table);
+    setEnteredDetails((prevDetails) => {
+      return [
+        ...prevDetails,
+        { selectedTable: table, selectedDish: dish, selectedPrice: price },
+      ];
+    });
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1 className="App">Orders</h1>
+      <InputDetails onAddDetails={addDetails} />
+      <ShowingDetails details={enteredDetails} />
     </div>
   );
 }
