@@ -1,7 +1,13 @@
 import React from "react";
 
 const ShowingDetails = (props) => {
-  // Group details by table
+  const handleDelete = (table, index) => {
+    props.onDeleteDetail(table, index);
+    const existingDetails =
+      JSON.parse(localStorage.getItem("orderDetails")) || [];
+    existingDetails.splice(index, 1);
+    localStorage.setItem("orderDetails", JSON.stringify(existingDetails));
+  };
   const detailsByTable = {};
   props.details.forEach((detail) => {
     const table = detail.selectedTable;
@@ -27,6 +33,9 @@ const ShowingDetails = (props) => {
               detailsByTable[table].map((detail, idx) => (
                 <li key={idx}>
                   Dish: {detail.selectedDish}, Price: {detail.selectedPrice}
+                  <button onClick={() => handleDelete(table, idx)}>
+                    Delete
+                  </button>
                 </li>
               ))
             ) : (

@@ -30,6 +30,12 @@ const InputDetails = (props) => {
       SelectedTable: table,
     };
     console.log(EnteredDetails);
+    const existingDetails =
+      JSON.parse(localStorage.getItem("orderDetails")) || [];
+
+    existingDetails.push(EnteredDetails);
+    localStorage.setItem("orderDetails", JSON.stringify(existingDetails));
+
     props.onAddDetails(orderId, price, dish, table);
     setOrderId("");
     setPrice("");
