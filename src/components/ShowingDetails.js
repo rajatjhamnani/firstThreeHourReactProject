@@ -19,7 +19,6 @@ const ShowingDetails = (props) => {
     console.log(detailsByTable);
   });
 
-  // Define all three tables
   const allTables = ["Table 1", "Table 2", "Table 3"];
 
   return (
@@ -33,13 +32,20 @@ const ShowingDetails = (props) => {
               detailsByTable[table].map((detail, idx) => (
                 <li key={idx}>
                   Dish: {detail.selectedDish}, Price: {detail.selectedPrice}
-                  <button onClick={() => handleDelete(table, idx)}>
+                  <button
+                    className="btn btn-danger button"
+                    onClick={() => handleDelete(table, idx)}
+                  >
                     Delete
                   </button>
                 </li>
               ))
             ) : (
-              <li>No details entered yet</li>
+              <li
+                style={{ color: "red", fontSize: "125%", fontWeight: "bold" }}
+              >
+                No details entered yet
+              </li>
             )}
           </ul>
         </div>

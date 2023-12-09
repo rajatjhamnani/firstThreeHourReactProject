@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import "./App.css";
 import InputDetails from "./components/InputDetails";
 import ShowingDetails from "./components/ShowingDetails";
+import Card from "./components/Card";
+import Heading from "./components/Heading";
 
 function App() {
   const [enteredDetails, setEnteredDetails] = useState([]);
@@ -27,11 +29,11 @@ function App() {
     });
   };
   return (
-    <div>
-      <h1 className="App">Orders</h1>
+    <Card>
+      <Heading />
       <InputDetails onAddDetails={addDetails} />
       <ShowingDetails details={enteredDetails} onDeleteDetail={deleteDetail} />
-    </div>
+    </Card>
   );
 }
 

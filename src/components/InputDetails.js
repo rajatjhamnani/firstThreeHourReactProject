@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./inputDetails.css";
 const InputDetails = (props) => {
   const [orderId, setOrderId] = useState("");
   const [price, setPrice] = useState("");
@@ -44,10 +45,11 @@ const InputDetails = (props) => {
   };
 
   return (
-    <form onSubmit={SubmitHandler}>
+    <form className="formpe" onSubmit={SubmitHandler}>
       <div>
         <label htmlFor="order">Order Id</label>
         <input
+          className="boundry  i"
           type="number"
           name="order"
           min="1"
@@ -57,6 +59,7 @@ const InputDetails = (props) => {
         />
         <label htmlFor="price">Choose Price</label>
         <input
+          className="boundry  i"
           type="number"
           name="price"
           min="50"
@@ -65,7 +68,7 @@ const InputDetails = (props) => {
           onChange={priceChange}
         />
         <label>choose Dish</label>
-        <select onChange={dishChange} value={dish}>
+        <select className="boundry  i" onChange={dishChange} value={dish}>
           <option>Select</option>
           <option>Dosa</option>
           <option>Noodles</option>
@@ -73,13 +76,15 @@ const InputDetails = (props) => {
           <option>Idli</option>
         </select>
         <label>choose Table</label>
-        <select onChange={tableChange} value={table}>
+        <select className="boundry  i" onChange={tableChange} value={table}>
           <option>select Table</option>
           <option>Table 1</option>
           <option>Table 2</option>
           <option>Table 3</option>
         </select>
-        <button type="submit">Add To Bill</button>
+        <button className="btn btn-danger button " type="submit">
+          Add To Bill
+        </button>
       </div>
     </form>
   );

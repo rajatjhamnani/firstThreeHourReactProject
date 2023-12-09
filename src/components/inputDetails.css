@@ -1,0 +1,21 @@
+.boundry {
+  border-radius: 2px;
+  border-color: rgba(19, 5, 10, 0.13);
+  border-style: ridge;
+  border-top-right-radius: 20px;
+}
+
+.formpe {
+  background-color: white;
+  border-radius: 5px;
+  border-width: 50%;
+  border: 3px solid black;
+}
+
+label {
+  color: red;
+  font-size: x-large;
+}
+.button {
+  border: 2px solid black;
+}

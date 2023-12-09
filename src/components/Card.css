@@ -1,0 +1,9 @@
+.change {
+  background-color: rgb(166, 166, 247);
+  border: 5px solid rgb(252, 14, 14);
+  margin: 5px;
+  border-radius: 10px;
+  text-align: center;
+  width: auto;
+  columns: auto;
+}
